@@ -1,40 +1,29 @@
-﻿
-#include <GL/glut.h>
-#include <iostream>
-#include <cmath>
-using namespace std;
-
-void init()
-{
-	glClearColor(1.0, 1.0, 1.0, 1.0);
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	gluOrtho2D(0.0, 200.0, 0.0, 150.0);
-}
-
-void setPixel(int x, int y, float p) 
+#include"gl/glut.h"
+#include"homework1.h"
+#include<math.h>
+void setPixel(int x, int y, float p)
 {
 	glBegin(GL_POINTS);
-	glColor3f(p, p, p);
+	glColor3f(1, 0, 0);
 	glVertex2i(x, y);
 	glEnd();
 }
-void function_display()//二次函数用中点画线算法实现  为了画出左右两边函数图像，坐标原点为（50,0）
+void function_display()//���κ������е㻭���㷨ʵ��  Ϊ�˻����������ߺ���ͼ������ԭ��Ϊ��50,0��
 {
-	
+
 	int x, y;
 
 	glClear(GL_COLOR_BUFFER_BIT);
 	glColor3f(1.0, 0.0, 0.0);
 	glBegin(GL_POINTS);
-	
+
 	x = 50;
 	y = 100;
 	int p = -3;
 	while (x <= 60)
 	{
 		glVertex2i(x, y);
-		glVertex2i(100-x, y);
+		glVertex2i(100 - x, y);
 		y--;
 		if (p >= 0)
 		{
@@ -43,7 +32,7 @@ void function_display()//二次函数用中点画线算法实现  为了画出�
 		else
 		{
 			x++;
-			p = p + (x-50) *8 - 4;
+			p = p + (x - 50) * 8 - 4;
 		}
 	}
 
@@ -51,10 +40,10 @@ void function_display()//二次函数用中点画线算法实现  为了画出�
 	glFlush();
 }
 
-void line_display()//中点画线算法实现
+void line_display()//�е㻭���㷨ʵ��
 {
-	//测试样例
-	
+	//��������
+
 	int x1 = 0, y1 = 0, x2 = 100, y2 = 40;//0<=k<=1
 	//int x1 = 0, y1 = 0, x2 = 20, y2 = 100;//k>1
 	//int x1 = 0, y1 = 100, x2 = 100, y2 = 60;//-1<=k<0
@@ -83,7 +72,7 @@ void line_display()//中点画线算法实现
 	else {
 		x = x1;
 		y = y1;
-	}//x,y选最左边的像素点
+	}//x,yѡ����ߵ����ص�
 	int p;
 	double area = dx;
 	if (y <= y2 && dx >= dy)//0<=k<=1
@@ -91,7 +80,7 @@ void line_display()//中点画线算法实现
 		p = dx - tmpy;
 		while (x <= x2)
 		{
-			setPixel(x, y, area/(2*dx));
+			setPixel(x, y, area / (2 * dx));
 			//glVertex2i(x, y);
 			x++;
 			if (p >= 0)
@@ -107,7 +96,7 @@ void line_display()//中点画线算法实现
 			}
 		}
 	}
-	else if (y <= y2 && dx <  dy)//k>1
+	else if (y <= y2 && dx < dy)//k>1
 	{
 		p = tmpx - dy;
 		while (x <= x2)
@@ -140,7 +129,7 @@ void line_display()//中点画线算法实现
 			{
 				y--;
 				area += -tmpy + tmpx;
-				p += -tmpx+tmpy;
+				p += -tmpx + tmpy;
 			}
 			else
 			{
@@ -151,7 +140,7 @@ void line_display()//中点画线算法实现
 	}
 	else//k<-1
 	{
-		p = -tmpx+dy;
+		p = -tmpx + dy;
 		while (x <= x2)
 		{
 			//glVertex2i(x, y);
@@ -173,18 +162,4 @@ void line_display()//中点画线算法实现
 	}
 	//glEnd();
 	glFlush();
-}
-
-int main(int argc, char** argv)
-{
-	glutInit(&argc, argv);
-	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
-	glutInitWindowPosition(50, 100);
-	glutInitWindowSize(400, 300);
-	glutCreateWindow("lab1");
-	init();
-	//glutDisplayFunc(function_display);//画二次函数
-	glutDisplayFunc(line_display);//画直线
-	glutMainLoop();
-	return 0;
 }
