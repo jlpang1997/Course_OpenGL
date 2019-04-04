@@ -15,7 +15,7 @@ int main(int argc, char** argv)
 
 	//glutDisplayFunc(function_display);//画二次函数
 	//glutDisplayFunc(line_display);//画直线
-	glutDisplayFunc(Cycle_display);
+	glutDisplayFunc(Cycle_display);//画圆
 
 	glutMainLoop();
 	return 0;
