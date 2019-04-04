@@ -120,11 +120,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="homework1.cpp" />
+    <ClCompile Include="homework3.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Initial.cpp" />
     <ClCompile Include="lab1.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="homework3.h" />
     <ClInclude Include="homework1.h" />
     <ClInclude Include="Initial.h" />
     <ClInclude Include="lab1.h" />
