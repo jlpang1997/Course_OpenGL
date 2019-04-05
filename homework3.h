@@ -8,3 +8,4 @@ void divide_tetra(GLfloat *a, GLfloat *b, GLfloat *c, GLfloat *d, int m);
 
 void display();
 
+void myReshape(int w, int h);

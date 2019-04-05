@@ -12,11 +12,11 @@ void function_display()//∂˛¥Œ∫Ø ˝”√÷–µ„ª≠œﬂÀ„∑® µœ÷  Œ™¡Àª≠≥ˆ◊Û”“¡Ω±ﬂ∫Ø ˝ÕºœÒ£¨◊
 {
 
 	int x, y;
-
+	glClearColor(1, 1, 1, 1);
 	glClear(GL_COLOR_BUFFER_BIT);
 	glColor3f(1.0, 0.0, 0.0);
 	glBegin(GL_POINTS);
-
+	glPointSize(5);
 	x = 50;
 	y = 100;
 	int p = -3;
@@ -24,6 +24,7 @@ void function_display()//∂˛¥Œ∫Ø ˝”√÷–µ„ª≠œﬂÀ„∑® µœ÷  Œ™¡Àª≠≥ˆ◊Û”“¡Ω±ﬂ∫Ø ˝ÕºœÒ£¨◊
 	{
 		glVertex2i(x, y);
 		glVertex2i(100 - x, y);
+		glFlush();
 		y--;
 		if (p >= 0)
 		{
@@ -57,7 +58,7 @@ void line_display()//÷–µ„ª≠œﬂÀ„∑® µœ÷
 	int tmpx = 2 * dx, tmpy = 2 * dy;
 
 
-
+	glClearColor(1, 1, 1, 1);
 	glClear(GL_COLOR_BUFFER_BIT);
 	//glColor3f(1.0, 0.0, 0.0);
 	//glBegin(GL_POINTS);
