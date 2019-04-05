@@ -18,5 +18,19 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="ppt6.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="learning001.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ppt6.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="learning001.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
