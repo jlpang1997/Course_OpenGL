@@ -173,8 +173,8 @@ void model_display()
 
 }
 
-//gllookat
-void look_model_display()//世界坐标系和观察坐标系
+//世界坐标系和观察坐标系
+void look_model_display()
 {
 	glClearColor(1, 1, 1, 1);
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -203,6 +203,31 @@ void look_model_display()//世界坐标系和观察坐标系
 	}
 }
 
+//投影变换
+void touying_display()
+{
+	glClearColor(1, 1, 1, 1);
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	glColor3f(0, 0, 1);
+	glMatrixMode(GL_MODELVIEW);
+	gluLookAt(0, 0, 10, 0, 0, 0, 0, 1, 0);
+
+	glMatrixMode(GL_PROJECTION);//正视投影
+	//glOrtho(-1, 1, -1, 1, 0, 20);//设置矩形视景体
+	//glFrustum(-1, 1, -1, 1, 1, 20);//设置棱台视景体
+	gluPerspective(60, 1, 1, 20);//同上
+
+	glMatrixMode(GL_MODELVIEW);
+	glTranslatef(0,0,0);
+	glColor3f(1, 0, 0);
+	glutWireTeapot(5);
+	glFlush();
+	
+
+
+}
+
 int main(int argc, char **argv)
 {
 	glutInit(&argc, argv);
@@ -218,7 +243,8 @@ int main(int argc, char **argv)
 	//glutDisplayFunc(myDisplay);
 
 	//glutDisplayFunc(model_display);
-	glutDisplayFunc(look_model_display);
+	//glutDisplayFunc(look_model_display);
+	glutDisplayFunc(touying_display);
 
 	glutMainLoop();
 	return 0;
