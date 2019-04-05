@@ -104,11 +104,12 @@ void line_color_display()//RGBAÄ£Ê½£¬ÖÁÓÚÑÕÉ«Ë÷ÒıÄ£Ê½¾ÍÊÇ°ÑÑÕÉ«Öµ´¢´æÔÚÒ»ÕÅ±íÀïÃ
 
 }
 
-const int n = 10;
-const GLfloat R = 0.5;
-const GLfloat PI = 3.1415926536f;
-void myDisplay(void)//»­³öÒ»¸öµ÷É«°å£¬Å£±Æ
+
+void tiaoseban_display(void)//»­³öÒ»¸öµ÷É«°å£¬Å£±Æ
 {
+	const int n = 10;
+	const GLfloat R = 0.5;
+	const GLfloat PI = 3.1415926536f;
 	glBegin(GL_POLYGON);
 	{
 		glColor3f(1, 1, 1);
@@ -124,8 +125,83 @@ void myDisplay(void)//»­³öÒ»¸öµ÷É«°å£¬Å£±Æ
 	glFlush();
 }
 
-//
+//×ø±ê±ä»¯
+//1,Êµ¼Ê±ä»»Ë³ĞòºÍÖ¸¶¨µÄË³ĞòÊÇÏà·´µÄ
 
+//Ò»Ğ©ÒÑÊµÏÖµÄÄ£ĞÍ
+void model_display()
+{
+	glClearColor(1, 1, 1, 1);
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	for (int i = 0; i < 10; i++)
+	{
+		glPushMatrix();
+		glTranslatef(0, 0.8 - 0.4*i, 0);
+		glColor3f(i / 10, 1, 0);
+		switch (i)
+		{
+			case 0:
+			{
+				glutWireSphere(0.2, 100, 100);//Íø×´Çò£¬°ë¾¶µÄÉèÖÃÎª¸¡µãÊı£¬ËùÒÔĞ¡ÓÚ1
+				break;
+			}
+			case 1:
+			{
+				glutWireCone(0.2,0.2,10,10);//Íø×´Çò£¬°ë¾¶µÄÉèÖÃÎª¸¡µãÊı£¬ËùÒÔĞ¡ÓÚ1
+				break;
+			}
+			case 2:
+			{
+				glutWireCube(0.2);//Íø×´Çò£¬°ë¾¶µÄÉèÖÃÎª¸¡µãÊı£¬ËùÒÔĞ¡ÓÚ1
+				break;
+			}
+			case 3:
+			{
+				glutWireTeapot(0.2);//Íø×´Çò£¬°ë¾¶µÄÉèÖÃÎª¸¡µãÊı£¬ËùÒÔĞ¡ÓÚ1
+				break;
+			}
+			case 4:
+			{
+				glutWireTorus(0.05,0.1,10,10);//Íø×´Çò£¬°ë¾¶µÄÉèÖÃÎª¸¡µãÊı£¬ËùÒÔĞ¡ÓÚ1
+				break;
+			}
+		}
+		glPopMatrix();
+		glFlush();
+	}
+
+}
+
+//gllookat
+void look_model_display()//ÊÀ½ç×ø±êÏµºÍ¹Û²ì×ø±êÏµ
+{
+	glClearColor(1, 1, 1, 1);
+	glClear(GL_COLOR_BUFFER_BIT);
+	
+	//ÊÀ½ç×ø±êÏµ
+	//ÔÚOpenGLÖĞ£¬ÊÀ½ç×ø±êÏµÊÇÒÔÆÁÄ»ÖĞĞÄÎªÔ­µã(0, 0, 0)£¬ÇÒÊÇÊ¼ÖÕ²»±äµÄ¡£
+	//ÄãÃæ¶ÔÆÁÄ»£¬ÄãµÄÓÒ±ßÊÇxÕıÖá£¬ÉÏÃæÊÇyÕıÖá£¬ÆÁÄ»Ö¸ÏòÄãµÄÎªzÕıÖá¡£³¤¶Èµ¥Î»ÕâÑùÀ´¶¨£º´°¿Ú·¶Î§°´´Ëµ¥Î»Ç¡ºÃÊÇ(-1, -1)µ½(1, 1)£¬¼´ÆÁÄ»×óÏÂ½Ç×ø±êÎª
+		//£¨ - 1£¬ - 1£©£¬ÓÒÉÏ½Ç×ø±êÎª£¨1, 1£©¡£ÕâÊÇ²ÉÓÃÁË¹éÒ»»¯µÄ½á¹û
+	glColor3f(1, 0, 0);
+	{
+		glMatrixMode(GL_MODELVIEW);//gl_lookat×÷ÓÃÓÚÄ£ĞÍÊÓÍ¼£¬Ò²¾ÍÊÇËµÓÃËûÖ®Ç°±ØĞëÉèÖÃÒ»ÏÂÕâÀï
+		//glLoadIdentity();//Õ»¶¥Îªµ¥Î»Õó
+		//gluLookAt(0, 0, 1,
+		//		  0,0,0,
+		//	0,1,0);//°ÑËü¿´³ÉÈË£¬Ç°Èı¸ö·ÖÁ¿ÊÇÑÛ¾¦µÄÎ»ÖÃ£¬
+					//ÖĞ¼äÈı¸ö·ÖÁ¿ÊÇ¿´µÄ·½Ïò
+					//×îºóÈı¸ö·ÖÁ¿ÊÇÍ·µÄ³¯Ïò
+		glTranslatef(0.4, 0.2,0);
+		glRotatef(30, 0, 0, 1);
+		glScalef(0.5, 1.5, 0.5);
+
+
+		glutWireTeapot(0.3);
+		glFlush();
+
+	}
+}
 
 int main(int argc, char **argv)
 {
@@ -139,7 +215,10 @@ int main(int argc, char **argv)
 	//glutDisplayFunc(line_display);
 	//glutDisplayFunc(polygon_display);
 	//glutDisplayFunc(line_color_display);
-	glutDisplayFunc(myDisplay);
+	//glutDisplayFunc(myDisplay);
+
+	//glutDisplayFunc(model_display);
+	glutDisplayFunc(look_model_display);
 
 	glutMainLoop();
 	return 0;
