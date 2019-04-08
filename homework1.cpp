@@ -164,3 +164,30 @@ void line_display()//中点画线算法实现
 	//glEnd();
 	glFlush();
 }
+
+//int main_homework1(int argc, char** argv)
+//{
+//	glutInit(&argc, argv);
+//	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
+//	glutInitWindowPosition(0, 0);
+//	glutInitWindowSize(800, 800);
+//	glutCreateWindow("lab1");
+//
+//	glutDisplayFunc(display);
+//	glEnable(GL_DEPTH_TEST);//很关键
+//
+//	glutMainLoop();
+//	return 0;
+//
+//	//glutInit(&argc, argv);
+//	//init();
+//
+//
+//	////glutDisplayFunc(function_display);//画二次函数
+//	////glutDisplayFunc(line_display);//画直线
+//	//glutDisplayFunc(Cycle_display);//画圆
+//	////glutDisplayFunc(display);//三维Sierpinski镂垫
+//
+//	//glutMainLoop();
+//	return 0;
+//}

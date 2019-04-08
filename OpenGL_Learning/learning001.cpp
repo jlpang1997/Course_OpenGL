@@ -1,20 +1,20 @@
-
+ï»¿
 #include"learning001.h"
 #include<math.h>
-//Êä³öÈıÖÖÍ¼Ôª£¬µã¡¢Ïß¡¢¶à±ßĞÎ
+//è¾“å‡ºä¸‰ç§å›¾å…ƒï¼Œç‚¹ã€çº¿ã€å¤šè¾¹å½¢
 void point_display()
 {
-	glPointSize(10);//Ö¸¶¨´óĞ¡£¬µ¥Î»ÏñËØ
+	glPointSize(10);//æŒ‡å®šå¤§å°ï¼Œå•ä½åƒç´ 
 	glBegin(GL_POINTS);
 	{
 		GLfloat v[2] = { 0,0.5 };
-		glVertex2f(0.0f, 0.0f);//±íÊ¾ÆÁÄ»ÖĞĞÄ£¬×÷ÎªÔ­µã
-		glVertex2fv(v);//Ö¸Õë£¬ÆäÊµ¾ÍÊÇ¸öÊı×é£¬Ò»Î¬ÏòÁ¿
+		glVertex2f(0.0f, 0.0f);//è¡¨ç¤ºå±å¹•ä¸­å¿ƒï¼Œä½œä¸ºåŸç‚¹
+		glVertex2fv(v);//æŒ‡é’ˆï¼Œå…¶å®å°±æ˜¯ä¸ªæ•°ç»„ï¼Œä¸€ç»´å‘é‡
 
-		//glVertex2s(10,10);//ÎªÊ²Ã´Õâ¸ö²»ĞĞ£¿
+		//glVertex2s(10,10);//ä¸ºä»€ä¹ˆè¿™ä¸ªä¸è¡Œï¼Ÿ
 		//GLshort v[2] = { 10,20 };
 		//glVertex2sv(v);
-							   //glVertex2f(0.0f, 0.5f);//1.0±íÊ¾ÆÁÄ»±ßÉÏ
+							   //glVertex2f(0.0f, 0.5f);//1.0è¡¨ç¤ºå±å¹•è¾¹ä¸Š
 		//glVertex2f(0.5f, 0.25f);
 	}
 	glEnd();
@@ -22,14 +22,14 @@ void point_display()
 }
 void line_display()
 {
-	//GL_LINES Á½¸öµãÅä¶Ô£¬ËùÒÔ±ØĞëÓĞÅ¼Êı¸öµã
-	//GL_LINE_STRIP Ê×Î²ÏàÁ¬µ«²»±ÕºÏ
-	//GL_LINE_LOOP Ê×Î²ÏàÁ¬¶øÇÒ±ÕºÏ
-	glLineWidth(3);//Éè¶¨¿í¶È
+	//GL_LINES ä¸¤ä¸ªç‚¹é…å¯¹ï¼Œæ‰€ä»¥å¿…é¡»æœ‰å¶æ•°ä¸ªç‚¹
+	//GL_LINE_STRIP é¦–å°¾ç›¸è¿ä½†ä¸é—­åˆ
+	//GL_LINE_LOOP é¦–å°¾ç›¸è¿è€Œä¸”é—­åˆ
+	glLineWidth(3);//è®¾å®šå®½åº¦
 
-	glEnable(GL_LINE_STIPPLE);//¿ªÆôĞéÏßÄ£Ê½
+	glEnable(GL_LINE_STIPPLE);//å¼€å¯è™šçº¿æ¨¡å¼
 
-	glLineStipple(3, 0b1001001001001000);//ÉèÖÃĞéÏßÊôĞÔ
+	glLineStipple(3, 0b1001001001001000);//è®¾ç½®è™šçº¿å±æ€§
 	glBegin(GL_LINE_LOOP);
 	{
 		glVertex2f(-0.8, -0.5);
@@ -42,17 +42,17 @@ void line_display()
 	glEnd();
 	glFlush();
 }
-void polygon_display()//openglÖ»ÄÜ»­Í¹¶à±ßĞÎ
+void polygon_display()//openglåªèƒ½ç”»å‡¸å¤šè¾¹å½¢
 {
 	glPointSize(10);
-	glFrontFace(GL_CCW);//ÄæÊ±ÕëÎªÕıÃæ
-	glFrontFace(GL_CW);//Ë³Ê±Õë
+	glFrontFace(GL_CCW);//é€†æ—¶é’ˆä¸ºæ­£é¢
+	glFrontFace(GL_CW);//é¡ºæ—¶é’ˆ
 	//glBegin(GL_POLYGON);
 	//glBegin(GL_TRIANGLES);
 	//glBegin(GL_TRIANGLE_STRIP);
-	glPolygonMode(GL_FRONT, GL_POINT);//GL_POINTÊÇÓÃÀ´ÉèÖÃÄ£Ê½µÄ£¬¶øGL_POINTSÊÇÓÃÀ´»­µãµÄ
-	glPolygonMode(GL_BACK, GL_FILL);//ÕâËµÃ÷µ±ÎÒÃÇ»­¶şÎ¬µÄÊ±ºò£¬¿´µ½µÄÊÇ±³Ãæ
-	glBegin(GL_QUADS);//ËÄ±ßĞÎ
+	glPolygonMode(GL_FRONT, GL_POINT);//GL_POINTæ˜¯ç”¨æ¥è®¾ç½®æ¨¡å¼çš„ï¼Œè€ŒGL_POINTSæ˜¯ç”¨æ¥ç”»ç‚¹çš„
+	glPolygonMode(GL_BACK, GL_FILL);//è¿™è¯´æ˜å½“æˆ‘ä»¬ç”»äºŒç»´çš„æ—¶å€™ï¼Œçœ‹åˆ°çš„æ˜¯èƒŒé¢
+	glBegin(GL_QUADS);//å››è¾¹å½¢
 	{
 		glVertex2f(0, -0.1);
 		glVertex2f(-0.5, 0);
@@ -65,11 +65,11 @@ void polygon_display()//openglÖ»ÄÜ»­Í¹¶à±ßĞÎ
 	glFlush();
 }
 
-//Êä³öÑÕÉ«
-void line_color_display()//RGBAÄ£Ê½£¬ÖÁÓÚÑÕÉ«Ë÷ÒıÄ£Ê½¾ÍÊÇ°ÑÑÕÉ«Öµ´¢´æÔÚÒ»ÕÅ±íÀïÃæ£¬ÓÃµÄÊ±ºòÖ±½ÓÈ¥ÑÕÉ«Ö¸Õë¾ÍĞĞ
+//è¾“å‡ºé¢œè‰²
+void line_color_display()//RGBAæ¨¡å¼ï¼Œè‡³äºé¢œè‰²ç´¢å¼•æ¨¡å¼å°±æ˜¯æŠŠé¢œè‰²å€¼å‚¨å­˜åœ¨ä¸€å¼ è¡¨é‡Œé¢ï¼Œç”¨çš„æ—¶å€™ç›´æ¥å»é¢œè‰²æŒ‡é’ˆå°±è¡Œ
 {
-	glClearColor(1, 1, 1, 1);//ÉèÖÃÆÁÄ»ÑÕÉ«°×É«
-	glClear(GL_COLOR_BUFFER_BIT);//Ê¹ÓÃÉèÖÃµÄÑÕÉ«×÷ÎªÆÁÄ»ÑÕÉ«£¬Á½ÕßÅäºÏ×ÅÊ¹ÓÃ
+	glClearColor(1, 1, 1, 1);//è®¾ç½®å±å¹•é¢œè‰²ç™½è‰²
+	glClear(GL_COLOR_BUFFER_BIT);//ä½¿ç”¨è®¾ç½®çš„é¢œè‰²ä½œä¸ºå±å¹•é¢œè‰²ï¼Œä¸¤è€…é…åˆç€ä½¿ç”¨
 
 	glColor3f(0, 0, 1);//
 	glLineWidth(5);
@@ -84,8 +84,8 @@ void line_color_display()//RGBAÄ£Ê½£¬ÖÁÓÚÑÕÉ«Ë÷ÒıÄ£Ê½¾ÍÊÇ°ÑÑÕÉ«Öµ´¢´æÔÚÒ»ÕÅ±íÀïÃ
 	glEnd();
 
 	glLineWidth(5);
-	glShadeModel(GL_FLAT);//È¡ºóÒ»µãÑÕÉ«
-	glShadeModel(GL_SMOOTH);//½¥±ä
+	glShadeModel(GL_FLAT);//å–åä¸€ç‚¹é¢œè‰²
+	glShadeModel(GL_SMOOTH);//æ¸å˜
 	glBegin(GL_LINES);
 	{
 		glColor3f(1, 0, 0);
@@ -103,7 +103,7 @@ void line_color_display()//RGBAÄ£Ê½£¬ÖÁÓÚÑÕÉ«Ë÷ÒıÄ£Ê½¾ÍÊÇ°ÑÑÕÉ«Öµ´¢´æÔÚÒ»ÕÅ±íÀïÃ
 }
 
 
-void tiaoseban_display(void)//»­³öÒ»¸öµ÷É«°å£¬Å£±Æ
+void tiaoseban_display(void)//ç”»å‡ºä¸€ä¸ªè°ƒè‰²æ¿ï¼Œç‰›é€¼
 {
 	const int n = 10;
 	const GLfloat R = 0.5;
@@ -114,8 +114,8 @@ void tiaoseban_display(void)//»­³öÒ»¸öµ÷É«°å£¬Å£±Æ
 		glVertex2f(0, 0);
 		for (int i = 1; i < 8; i++)
 		{
-			glColor3f(i & 0x004, i & 0x002, i & 0x001);//Õâ¸ö¿´²»Ì«¶®£¿£¿
-			glVertex2f(R*cos(i*PI / 3), R*sin(i*PI / 3));//»­³ö°Ë¸ö¶¥µã
+			glColor3f(i & 0x004, i & 0x002, i & 0x001);//è¿™ä¸ªçœ‹ä¸å¤ªæ‡‚ï¼Ÿï¼Ÿ
+			glVertex2f(R*cos(i*PI / 3), R*sin(i*PI / 3));//ç”»å‡ºå…«ä¸ªé¡¶ç‚¹
 		}
 	}
 	glEnd();
@@ -123,10 +123,10 @@ void tiaoseban_display(void)//»­³öÒ»¸öµ÷É«°å£¬Å£±Æ
 	glFlush();
 }
 
-//×ø±ê±ä»¯
-//1,Êµ¼Ê±ä»»Ë³ĞòºÍÖ¸¶¨µÄË³ĞòÊÇÏà·´µÄ
+//åæ ‡å˜åŒ–
+//1,å®é™…å˜æ¢é¡ºåºå’ŒæŒ‡å®šçš„é¡ºåºæ˜¯ç›¸åçš„
 
-//Ò»Ğ©ÒÑÊµÏÖµÄÄ£ĞÍ
+//ä¸€äº›å·²å®ç°çš„æ¨¡å‹
 void model_display()
 {
 	glClearColor(1, 1, 1, 1);
@@ -141,27 +141,27 @@ void model_display()
 		{
 		case 0:
 		{
-			glutWireSphere(0.2, 100, 100);//Íø×´Çò£¬°ë¾¶µÄÉèÖÃÎª¸¡µãÊı£¬ËùÒÔĞ¡ÓÚ1
+			glutWireSphere(0.2, 100, 100);//ç½‘çŠ¶çƒï¼ŒåŠå¾„çš„è®¾ç½®ä¸ºæµ®ç‚¹æ•°ï¼Œæ‰€ä»¥å°äº1
 			break;
 		}
 		case 1:
 		{
-			glutWireCone(0.2, 0.2, 10, 10);//Íø×´Çò£¬°ë¾¶µÄÉèÖÃÎª¸¡µãÊı£¬ËùÒÔĞ¡ÓÚ1
+			glutWireCone(0.2, 0.2, 10, 10);//ç½‘çŠ¶çƒï¼ŒåŠå¾„çš„è®¾ç½®ä¸ºæµ®ç‚¹æ•°ï¼Œæ‰€ä»¥å°äº1
 			break;
 		}
 		case 2:
 		{
-			glutWireCube(0.2);//Íø×´Çò£¬°ë¾¶µÄÉèÖÃÎª¸¡µãÊı£¬ËùÒÔĞ¡ÓÚ1
+			glutWireCube(0.2);//ç½‘çŠ¶çƒï¼ŒåŠå¾„çš„è®¾ç½®ä¸ºæµ®ç‚¹æ•°ï¼Œæ‰€ä»¥å°äº1
 			break;
 		}
 		case 3:
 		{
-			glutWireTeapot(0.2);//Íø×´Çò£¬°ë¾¶µÄÉèÖÃÎª¸¡µãÊı£¬ËùÒÔĞ¡ÓÚ1
+			glutWireTeapot(0.2);//ç½‘çŠ¶çƒï¼ŒåŠå¾„çš„è®¾ç½®ä¸ºæµ®ç‚¹æ•°ï¼Œæ‰€ä»¥å°äº1
 			break;
 		}
 		case 4:
 		{
-			glutWireTorus(0.05, 0.1, 10, 10);//Íø×´Çò£¬°ë¾¶µÄÉèÖÃÎª¸¡µãÊı£¬ËùÒÔĞ¡ÓÚ1
+			glutWireTorus(0.05, 0.1, 10, 10);//ç½‘çŠ¶çƒï¼ŒåŠå¾„çš„è®¾ç½®ä¸ºæµ®ç‚¹æ•°ï¼Œæ‰€ä»¥å°äº1
 			break;
 		}
 		}
@@ -171,25 +171,25 @@ void model_display()
 
 }
 
-//ÊÀ½ç×ø±êÏµºÍ¹Û²ì×ø±êÏµ
+//ä¸–ç•Œåæ ‡ç³»å’Œè§‚å¯Ÿåæ ‡ç³»
 void look_model_display()
 {
 	glClearColor(1, 1, 1, 1);
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	//ÊÀ½ç×ø±êÏµ
-	//ÔÚOpenGLÖĞ£¬ÊÀ½ç×ø±êÏµÊÇÒÔÆÁÄ»ÖĞĞÄÎªÔ­µã(0, 0, 0)£¬ÇÒÊÇÊ¼ÖÕ²»±äµÄ¡£
-	//ÄãÃæ¶ÔÆÁÄ»£¬ÄãµÄÓÒ±ßÊÇxÕıÖá£¬ÉÏÃæÊÇyÕıÖá£¬ÆÁÄ»Ö¸ÏòÄãµÄÎªzÕıÖá¡£³¤¶Èµ¥Î»ÕâÑùÀ´¶¨£º´°¿Ú·¶Î§°´´Ëµ¥Î»Ç¡ºÃÊÇ(-1, -1)µ½(1, 1)£¬¼´ÆÁÄ»×óÏÂ½Ç×ø±êÎª
-		//£¨ - 1£¬ - 1£©£¬ÓÒÉÏ½Ç×ø±êÎª£¨1, 1£©¡£ÕâÊÇ²ÉÓÃÁË¹éÒ»»¯µÄ½á¹û
+	//ä¸–ç•Œåæ ‡ç³»
+	//åœ¨OpenGLä¸­ï¼Œä¸–ç•Œåæ ‡ç³»æ˜¯ä»¥å±å¹•ä¸­å¿ƒä¸ºåŸç‚¹(0, 0, 0)ï¼Œä¸”æ˜¯å§‹ç»ˆä¸å˜çš„ã€‚
+	//ä½ é¢å¯¹å±å¹•ï¼Œä½ çš„å³è¾¹æ˜¯xæ­£è½´ï¼Œä¸Šé¢æ˜¯yæ­£è½´ï¼Œå±å¹•æŒ‡å‘ä½ çš„ä¸ºzæ­£è½´ã€‚é•¿åº¦å•ä½è¿™æ ·æ¥å®šï¼šçª—å£èŒƒå›´æŒ‰æ­¤å•ä½æ°å¥½æ˜¯(-1, -1)åˆ°(1, 1)ï¼Œå³å±å¹•å·¦ä¸‹è§’åæ ‡ä¸º
+		//ï¼ˆ - 1ï¼Œ - 1ï¼‰ï¼Œå³ä¸Šè§’åæ ‡ä¸ºï¼ˆ1, 1ï¼‰ã€‚è¿™æ˜¯é‡‡ç”¨äº†å½’ä¸€åŒ–çš„ç»“æœ
 	glColor3f(1, 0, 0);
 	{
-		glMatrixMode(GL_MODELVIEW);//gl_lookat×÷ÓÃÓÚÄ£ĞÍÊÓÍ¼£¬Ò²¾ÍÊÇËµÓÃËûÖ®Ç°±ØĞëÉèÖÃÒ»ÏÂÕâÀï
-		//glLoadIdentity();//Õ»¶¥Îªµ¥Î»Õó
+		glMatrixMode(GL_MODELVIEW);//gl_lookatä½œç”¨äºæ¨¡å‹è§†å›¾ï¼Œä¹Ÿå°±æ˜¯è¯´ç”¨ä»–ä¹‹å‰å¿…é¡»è®¾ç½®ä¸€ä¸‹è¿™é‡Œ
+		//glLoadIdentity();//æ ˆé¡¶ä¸ºå•ä½é˜µ
 		//gluLookAt(0, 0, 1,
 		//		  0,0,0,
-		//	0,1,0);//°ÑËü¿´³ÉÈË£¬Ç°Èı¸ö·ÖÁ¿ÊÇÑÛ¾¦µÄÎ»ÖÃ£¬
-					//ÖĞ¼äÈı¸ö·ÖÁ¿ÊÇ¿´µÄ·½Ïò
-					//×îºóÈı¸ö·ÖÁ¿ÊÇÍ·µÄ³¯Ïò
+		//	0,1,0);//æŠŠå®ƒçœ‹æˆäººï¼Œå‰ä¸‰ä¸ªåˆ†é‡æ˜¯çœ¼ç›çš„ä½ç½®ï¼Œ
+					//ä¸­é—´ä¸‰ä¸ªåˆ†é‡æ˜¯çœ‹çš„æ–¹å‘
+					//æœ€åä¸‰ä¸ªåˆ†é‡æ˜¯å¤´çš„æœå‘
 		glTranslatef(0.4, 0.2, 0);
 		glRotatef(30, 0, 0, 1);
 		glScalef(0.5, 1.5, 0.5);
@@ -201,7 +201,7 @@ void look_model_display()
 	}
 }
 
-//Í¶Ó°±ä»»
+//æŠ•å½±å˜æ¢
 void touying_display()
 {
 	glClearColor(1, 1, 1, 1);
@@ -211,10 +211,10 @@ void touying_display()
 	glMatrixMode(GL_MODELVIEW);
 	gluLookAt(0, 0, 10, 0, 0, 0, 0, 1, 0);
 
-	glMatrixMode(GL_PROJECTION);//ÕıÊÓÍ¶Ó°
-	//glOrtho(-1, 1, -1, 1, 0, 20);//ÉèÖÃ¾ØĞÎÊÓ¾°Ìå
-	//glFrustum(-1, 1, -1, 1, 1, 20);//ÉèÖÃÀâÌ¨ÊÓ¾°Ìå
-	gluPerspective(60, 1, 1, 20);//Í¬ÉÏ
+	glMatrixMode(GL_PROJECTION);//æ­£è§†æŠ•å½±
+	//glOrtho(-1, 1, -1, 1, 0, 20);//è®¾ç½®çŸ©å½¢è§†æ™¯ä½“
+	//glFrustum(-1, 1, -1, 1, 1, 20);//è®¾ç½®æ£±å°è§†æ™¯ä½“
+	gluPerspective(60, 1, 1, 20);//åŒä¸Š
 
 	glMatrixMode(GL_MODELVIEW);
 	glTranslatef(0, 0, 0);
@@ -226,3 +226,153 @@ void touying_display()
 
 }
 
+static GLdouble eyez = 1;
+void myreshape(int w, int h)//ä¿æŒå›¾å½¢æ¯”ä¾‹
+{
+	glViewport(0, 0, (GLsizei)w, (GLsizei)h);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluPerspective(70, (float)w / h, 0.1, 10);
+}
+
+static int day = 200; // dayçš„å˜åŒ–ï¼šä»0åˆ°359
+void myDisplay(void)
+{
+	glEnable(GL_DEPTH_TEST); //å¯åŠ¨æ·±åº¦æµ‹è¯•ï¼ˆè¿™æ ·åç»˜åˆ¶çš„å›¾å½¢å¦‚æœåœ¨å·²ç»å­˜åœ¨çš„å›¾å½¢çš„å‰é¢ï¼Œå®ƒä¼šè¢«é®ä½ï¼Œè€Œä¸æ˜¯é®ä½åˆ«äºº
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //æ¸…ç©ºé¢œè‰²å’Œæ·±åº¦ç¼“å†²
+
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluPerspective(75, 1, 1.15, 40000000);
+
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+	gluLookAt(0, -20000000, 20000000, 0, 0, 0, 0, 0, 1);
+
+	// ç»˜åˆ¶çº¢è‰²çš„â€œå¤ªé˜³â€
+	glColor3f(1.0f, 0.0f, 0.0f);
+	glutSolidSphere(6960000, 20, 20);
+	// ç»˜åˆ¶è“è‰²çš„â€œåœ°çƒâ€
+	glColor3f(0.0f, 0.0f, 1.0f);
+	glRotatef(day / 360.0*360.0, 0.0f, 0.0f, -1.0f);
+	glTranslatef(15000000, 0.0f, 0.0f);
+	glutSolidSphere(1594500, 20, 20);
+	// ç»˜åˆ¶é»„è‰²çš„â€œæœˆäº®â€
+	glColor3f(1.0f, 1.0f, 0.0f);
+	glRotatef(day / 30.0*360.0 - day / 360.0*360.0, 0.0f, 0.0f, -1.0f);
+	glTranslatef(3800000, 0.0f, 0.0f);
+	glutSolidSphere(434500, 20, 20);
+
+	glFlush();
+}
+
+static GLdouble teasize = 0.5;
+static GLdouble viewz = 1;
+void reshape_display()
+{
+	glClearColor(1, 1, 1, 1);
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	glMatrixMode(GL_MODELVIEW);//ä¿®æ”¹æ¨¡å‹è§†å›¾
+	glLoadIdentity();
+	gluLookAt(0, 0, eyez, 0, 0, 0, 0, 1, 0);//è§‚å¯Ÿè€…ä½ç½®
+	glColor3f(1, 0, 0);
+	glutWireTeapot(teasize);
+	glFlush();
+}
+
+void mymouse(int btn, int state, int x, int y) {
+	//if (  btn == GLUT_LEFT_BUTTON&&state==GLUT_DOWN)
+	//	eyez+=0.1;
+	//else if (btn == GLUT_RIGHT_BUTTON && state == GLUT_DOWN)
+	//	eyez -= 0.5;
+	//else if (btn == GLUT_WHEEL_UP && state == GLUT_UP)
+	//	eyez -= 0.5;
+	//else if (btn == GLUT_WHEEL_DOWN && state == GLUT_UP)
+	//	eyez -= 0.5;
+	if (btn == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
+	{
+		draw(x, y);
+	}
+	//reshape_display();
+}
+void draw(int x, int y)
+{
+	int size = 5;
+	glColor3f(1, 0, 0);
+	glPointSize(5);
+	glBegin(GL_QUADS);
+	{
+		glVertex2d(x + size, y + size); 
+		glVertex2d(x + size, y - size); 
+		glVertex2d(x - size, y + size);
+		glVertex2d(x - size, y - size);
+	}
+	glEnd();
+	glFlush();
+}
+void nop_display()
+{
+	glClearColor(1, 1, 1, 1);
+	glClear(GL_COLOR_BUFFER_BIT);
+}
+
+void mymenu(int value) {
+	if (value == 1)
+		glClear(GL_COLOR_BUFFER_BIT);
+	if (value == 2) exit(0);
+}
+void processTopMenu(int value)
+{
+	if (value == 1)
+	{
+		exit(0);
+	}
+	if (value == 2)
+	{
+
+	}
+}
+void processSizeMenu(int value)
+{
+	if (value == 2)
+	{
+		teasize += 0.1;
+		reshape_display();
+	}
+	else if (value == 3)
+	{
+		teasize -= 0.1;
+		reshape_display();
+	}
+}
+int main_learning001(int argc, char**argv)
+{
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_RGB|GLUT_SINGLE|GLUT_DEPTH);
+	glutInitWindowPosition(0, 0);
+	glutInitWindowSize(500, 500);
+	glutCreateWindow("reshape");
+	glutReshapeFunc(myreshape);
+	glutMouseFunc(mymouse);
+	glutDisplayFunc(reshape_display);
+
+	//int menu_id = glutCreateMenu(mymenu);
+	//glutAddMenuEntry("Clear Scree", 1);
+	//glutAddMenuEntry("Exit", 2);
+
+	//glutAttachMenu(GLUT_RIGHT_BUTTON);
+	int sub_menu;
+	sub_menu = glutCreateMenu(processSizeMenu);
+	glutAddMenuEntry("increase square size", 2);
+	glutAddMenuEntry("decrease square size", 3);
+	glutCreateMenu(processTopMenu);
+	glutAddMenuEntry("quit", 1);
+	glutAddSubMenu("resize", sub_menu);
+
+	glutAttachMenu(GLUT_RIGHT_BUTTON);
+
+	glutMainLoop();
+
+	return 0;
+}

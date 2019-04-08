@@ -89,6 +89,23 @@ void myReshape(int w, int h)
 	else
 		glOrtho(-2.0 * (GLfloat)w / (GLfloat)h,
 			2.0 * (GLfloat)w / (GLfloat)h, -2.0, 2.0, -10.0, 10.0);
+
 	glMatrixMode(GL_MODELVIEW);
 	glutPostRedisplay();
+}
+
+
+int main_homework3(int argc, char**argv)
+{
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB | GLUT_DEPTH);
+	glutInitWindowSize(500, 500);
+	glutCreateWindow("3D Gasket");
+	glutReshapeFunc(myReshape);
+	glutDisplayFunc(display);
+	glEnable(GL_DEPTH_TEST);
+	//gl_depth_test和reshape两个都很重要
+	glClearColor(1.0, 1.0, 1.0, 1.0);
+	glutMainLoop();
+	return 0;
 }
