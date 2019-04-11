@@ -36,6 +36,12 @@
     <ClCompile Include="Cohen_Sutherland3D.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="lab2.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="homework5.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lab1.h">
@@ -51,6 +57,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="homework4.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="lab2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="homework5.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

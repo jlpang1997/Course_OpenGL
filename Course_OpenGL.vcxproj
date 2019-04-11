@@ -79,7 +79,7 @@
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>NotSet</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -123,6 +123,8 @@
     <ClCompile Include="homework1.cpp" />
     <ClCompile Include="homework3.cpp" />
     <ClCompile Include="homework4.cpp" />
+    <ClCompile Include="homework5.cpp" />
+    <ClCompile Include="lab2.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Initial.cpp" />
     <ClCompile Include="lab1.cpp" />
@@ -131,8 +133,10 @@
     <ClInclude Include="homework3.h" />
     <ClInclude Include="homework1.h" />
     <ClInclude Include="homework4.h" />
+    <ClInclude Include="homework5.h" />
     <ClInclude Include="Initial.h" />
     <ClInclude Include="lab1.h" />
+    <ClInclude Include="lab2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

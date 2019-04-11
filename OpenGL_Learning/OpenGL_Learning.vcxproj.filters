@@ -27,6 +27,9 @@
     <ClCompile Include="ppt7.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="ppt8.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ppt6.h">
@@ -39,6 +42,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="learning_note.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ppt8.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

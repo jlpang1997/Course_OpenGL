@@ -15,4 +15,7 @@
 	什么视点投影没有半毛钱关系就是一个分屏而已
 
 	6,gluPerspective(75, (GLfloat)newWidth / newHeight, 0.1, 100);要记得装换类型
+
+
+
 */

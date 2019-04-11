@@ -5,10 +5,10 @@ void set_pixel(int x, int y)
 {
 	//glPointSize(2);
 	glBegin(GL_POINTS);
-	glColor3f(0, 0, 0);
+	glColor3f(1, 0, 0);
 	glVertex2i(x, y);
 	glEnd();
-	for (int i = 0; i <100000; i++)
+	for (int i = 0; i <100000; i++)//这是为了显示效果
 	{
 		glFlush();
 	}
@@ -60,5 +60,15 @@ void Cycle_display()
 
 	}
 	glFlush();
+}
 
+void main_lab1(int argc, char**argv)
+{
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE);
+	glutInitWindowPosition(0, 0);
+	glutInitWindowSize(500, 500);
+	glutCreateWindow("lab1");
+	glutDisplayFunc(Cycle_display);
+	glutMainLoop();
 }
