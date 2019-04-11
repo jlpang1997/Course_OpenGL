@@ -125,6 +125,7 @@
     <ClCompile Include="homework4.cpp" />
     <ClCompile Include="homework5.cpp" />
     <ClCompile Include="lab2.cpp" />
+    <ClCompile Include="lab3.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Initial.cpp" />
     <ClCompile Include="lab1.cpp" />
@@ -137,6 +138,17 @@
     <ClInclude Include="Initial.h" />
     <ClInclude Include="lab1.h" />
     <ClInclude Include="lab2.h" />
+    <ClInclude Include="lab3.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="353bd50.bmp" />
+    <Image Include="9496a70.bmp" />
+    <Image Include="9622210.bmp" />
+    <Image Include="bd378f0.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="luweiqi.txt" />
+    <Text Include="文件格式说明.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -42,6 +42,9 @@
     <ClCompile Include="homework5.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="lab3.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lab1.h">
@@ -65,5 +68,30 @@
     <ClInclude Include="homework5.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="lab3.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="353bd50.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="9496a70.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="9622210.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="bd378f0.bmp">
+      <Filter>资源文件</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="luweiqi.txt">
+      <Filter>资源文件</Filter>
+    </Text>
+    <Text Include="文件格式说明.txt">
+      <Filter>资源文件</Filter>
+    </Text>
   </ItemGroup>
 </Project>
