@@ -13,6 +13,7 @@
 
 #include"lab1.h"//实验用
 #include"lab2.h"
+#include"lab3.h"
 
 using namespace std;
 int   main(int argc, char **argv)
@@ -21,7 +22,8 @@ int   main(int argc, char **argv)
 	//main_homework4(argc, argv);
 	//main_lab1(argc, argv);
 	//main_lab2(argc, argv);
-	main_homework5(argc, argv);
+	main_lab3(argc, argv);
+	//main_homework5(argc, argv);
 }
 
 
