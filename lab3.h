@@ -18,5 +18,7 @@ struct Model
 };
 void Get_Model();
 void submodel_display();
-void Init_lab5();
+void Init_lab3();
 void main_lab3(int  argc, char** argv);
+void Idle_lab3(void);
+GLuint load_texture(const char* file_name);
