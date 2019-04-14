@@ -141,7 +141,8 @@ void submodel_display()
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-	glScalef(scale[0], scale[1], scale[2]);//纹理搞了半天，先不实现纹理，先把材质搞好了
+	glScalef(scale[0], scale[1], scale[2]);
+
 	gluLookAt(viewx, viewy, viewz, 0, 0, 0, 0,1, 0);
 
 
@@ -179,57 +180,42 @@ void submodel_display()
 	glLightfv(GL_LIGHT3, GL_DIFFUSE, diffuse0);
 	glLightfv(GL_LIGHT3, GL_SPECULAR, specular0);
 
-	
-
-
-	//int id= load_texture(texture_file_name[material[submodel[submodel_index].material_index].texture_file_index]);
-	//glBindTexture(GL_TEXTURE_2D, id);
-	glBindTexture(GL_TEXTURE_2D, texture_id[submodel_index]);
+	glRotated(theta, n[0], n[1], n[2]);
+	glTranslated(0, 0, 0.9);
+	glRotated(90, -1, 0, 0);
+	for (submodel_index = 1; submodel_index <= 4; submodel_index++)
 	{
-
-		glRotated(theta, n[0], n[1], n[2]);
-		if (submodel_index == 2)
+		glBindTexture(GL_TEXTURE_2D, texture_id[submodel_index]);
 		{
-			
-			glRotated(50, -1, 0, 0);
-			glTranslated(-0.5, -0.5, 0);
-		}
-		glTranslated(0, 0, 0.9);
-		glRotated(90, -1, 0, 0);
-		
-		glBegin(GL_TRIANGLES);
-		for (int i = 1; i <= submodel[submodel_index].triangle_num;i++)
-		{
-			
-			for (int j = 0; j < 9; j += 3)//这里从0开始
+			glBegin(GL_TRIANGLES);
+			for (int i = 1; i <= submodel[submodel_index].triangle_num; i++)
 			{
 
-				glTexCoord2fv(texture_point[submodel[submodel_index].triangle[i][j + 1]]);//加上贴图
-				glVertex3fv(vertex[submodel[submodel_index].triangle[i][j]]);//画点
+				for (int j = 0; j < 9; j += 3)//这里从0开始
+				{
 
-				glNormal3fv(normal[submodel[submodel_index].triangle[i][j+2]]);//设置法向
-				
-				glMaterialfv(GL_FRONT|GL_BACK, GL_AMBIENT, material[submodel[submodel_index].material_index].ambient);
+					glTexCoord2fv(texture_point[submodel[submodel_index].triangle[i][j + 1]]);//加上贴图
+					glVertex3fv(vertex[submodel[submodel_index].triangle[i][j]]);//画点
 
-				glMaterialfv(GL_FRONT | GL_BACK, GL_DIFFUSE, material[submodel[submodel_index].material_index].diffuse);
+					glNormal3fv(normal[submodel[submodel_index].triangle[i][j + 2]]);//设置法向
 
-				glMaterialfv(GL_FRONT | GL_BACK, GL_SPECULAR, material[submodel[submodel_index].material_index].specular);
+					glMaterialfv(GL_FRONT | GL_BACK, GL_AMBIENT, material[submodel[submodel_index].material_index].ambient);
 
-				glMaterialfv(GL_FRONT | GL_BACK, GL_EMISSION, material[submodel[submodel_index].material_index].emission);
+					glMaterialfv(GL_FRONT | GL_BACK, GL_DIFFUSE, material[submodel[submodel_index].material_index].diffuse);
 
-				glMateriali(GL_FRONT | GL_BACK, GL_SHININESS, material[submodel[submodel_index].material_index].shininess);
+					glMaterialfv(GL_FRONT | GL_BACK, GL_SPECULAR, material[submodel[submodel_index].material_index].specular);
 
+					glMaterialfv(GL_FRONT | GL_BACK, GL_EMISSION, material[submodel[submodel_index].material_index].emission);
 
+					glMateriali(GL_FRONT | GL_BACK, GL_SHININESS, material[submodel[submodel_index].material_index].shininess);
+
+				}
 			}
-			
-			
-			
-
+			glEnd();
 		}
-		glEnd();
-		glutSwapBuffers();
-
 	}
+	glutSwapBuffers();
+	
 	//glFlush(); //画点看看效果
 
 	
@@ -265,43 +251,12 @@ void key_lab3(unsigned char key, int x, int y)
 		theta += 15;
 		break;
 	}
-	case 's': 
-	{
-		viewx = init_viewx; 
-		if (viewz > 0)
-		{
-			if (viewy > 0)
-			{
-				viewz += change_size;
-			}
-			else
-			{
-				viewz -= change_size;
-			}
-			viewy -= change_size;
-		}
-		else 
-		{
-			if (viewy > 0)
-			{
-				viewz -= change_size;
-			}
-			else
-			{
-				viewz += change_size;
-			}
-			viewy += change_size;
-		}
-		 break;
-	}
+	case 's': viewy -= change_size; break;
 	case 'w': viewy += change_size; break;
 	case 'z': viewz -= change_size; break;
 	case 'x': viewz += change_size; break;
 	case 'e':
 	{
-		submodel_index++;
-		if (submodel_index == submodel_num+1)
-			submodel_index = 1;
 		viewx = init_viewx;
 		viewy = init_viewy;
 		viewz = init_viewz;
@@ -309,9 +264,7 @@ void key_lab3(unsigned char key, int x, int y)
 		n[0] = ny[0];
 		n[1] = ny[1];
 		n[2] = ny[2];
-
 		theta = init_theta;
-
 	}
 	default:
 		break;
@@ -434,8 +387,6 @@ void shape_lab3(int w, int h)
 	{
 		glOrtho(-1 , 1 , -1* (GLdouble)h/ (GLdouble)w, 1* (GLdouble)h/ (GLdouble)w, 0, 100);
 	}
-	//submodel_display();
-	
 }
 
 void main_lab3(int  argc, char** argv)
@@ -449,7 +400,7 @@ void main_lab3(int  argc, char** argv)
 	//glutMouseFunc(mouse_lab3);
 	glutKeyboardFunc(key_lab3);
 	glutReshapeFunc(shape_lab3);
-	//glutIdleFunc(&Idle_lab3);
+	glutIdleFunc(&Idle_lab3);
 	glutDisplayFunc(submodel_display);
 	glutMainLoop();
 }
